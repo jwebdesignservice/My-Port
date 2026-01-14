@@ -4170,7 +4170,7 @@ p {
   }
   
   .marquee-track {
-    animation-duration: 28s;
+    animation-duration: 8s;
   }
   
   .work-gallery-header {
@@ -4219,7 +4219,7 @@ p {
   
   .marquee-track {
     gap: 1.5rem;
-    animation-duration: 24s;
+    animation-duration: 9s;
   }
   
   .marquee-container::before,
@@ -4489,13 +4489,12 @@ p {
 }
 
 .heading-sub-container {
-  grid-column-gap: 9px;
-  grid-row-gap: 9px;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: auto;
   display: flex;
+  gap: 1rem;
 }
 
 .heading-sub-container.centre {
@@ -4933,8 +4932,8 @@ p {
 }
 
 .process-header .section-heading-2 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .process-subtitle {
@@ -10961,7 +10960,7 @@ p {
   }
   
   .animated-cta-wrapper {
-    bottom: -100px;
+    bottom: -120px;
   }
 }
 
@@ -10985,7 +10984,7 @@ p {
   }
   
   .animated-cta-wrapper {
-    bottom: -95px;
+    bottom: -115px;
   }
   
   .headline-line {
@@ -11004,7 +11003,7 @@ p {
   }
   
   .animated-cta-wrapper {
-    bottom: -90px;
+    bottom: -110px;
   }
 }
 
@@ -11025,16 +11024,15 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
 .testimonials-badge {
   justify-content: center;
-  margin-bottom: 1rem;
   width: auto;
 }
 
 .testimonials-subtitle {
-  margin-top: 1rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
