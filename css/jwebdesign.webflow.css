@@ -4205,7 +4205,7 @@ p {
   }
   
   .marquee-project-title {
-    font-size: 1.15rem;
+    font-size: calc(1.15rem - 1.5px);
     line-height: 1.3;
     white-space: normal;
     word-wrap: break-word;
@@ -4263,7 +4263,7 @@ p {
   }
   
   .marquee-project-title {
-    font-size: 1.05rem;
+    font-size: calc(1.05rem - 1.5px);
     line-height: 1.3;
     white-space: normal;
     word-wrap: break-word;
@@ -4320,7 +4320,7 @@ p {
   }
   
   .marquee-project-title {
-    font-size: 1rem;
+    font-size: calc(1rem - 1.5px);
     line-height: 1.3;
     white-space: normal;
     word-wrap: break-word;
