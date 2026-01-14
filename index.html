@@ -1657,11 +1657,39 @@ function initProjectAnimations() {
   });
 }
 
+// Services Cards Scroll Animation
+function initServicesAnimations() {
+  const serviceCards = document.querySelectorAll('.what-we-do-point-1');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.1
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  serviceCards.forEach(card => {
+    observer.observe(card);
+  });
+}
+
 // Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', initProjectAnimations);
+document.addEventListener('DOMContentLoaded', function() {
+  initProjectAnimations();
+  initServicesAnimations();
+});
 // Also run immediately in case DOM is already loaded
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
   initProjectAnimations();
+  initServicesAnimations();
 }
 </script>
 </body>
