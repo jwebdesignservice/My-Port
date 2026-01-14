@@ -2077,18 +2077,22 @@ function initTestimonialsNavigation() {
   
   function updateSlider() {
     const cardWidth = cards[0].offsetWidth;
-    const gap = 24; // 1.5rem gap
+    const computedStyle = window.getComputedStyle(grid);
+    const gapValue = parseFloat(computedStyle.gap) || 24;
     const containerWidth = scrollContainer.offsetWidth;
     
     // Calculate offset to center the active card
-    const cardCenter = currentIndex * (cardWidth + gap) + (cardWidth / 2);
+    const cardCenter = currentIndex * (cardWidth + gapValue) + (cardWidth / 2);
     const containerCenter = containerWidth / 2;
     let offset = cardCenter - containerCenter;
     
+    // Get actual grid padding from computed styles
+    const gridPaddingLeft = parseFloat(computedStyle.paddingLeft) || 40;
+    const gridPaddingRight = parseFloat(computedStyle.paddingRight) || 40;
+    
     // Clamp offset to prevent over-scrolling, but allow scrolling past to show last card fully
-    const totalWidth = cards.length * (cardWidth + gap) - gap;
-    const gridPadding = 40; // Account for grid padding
-    const maxOffset = totalWidth - containerWidth + (gridPadding * 2);
+    const totalWidth = cards.length * (cardWidth + gapValue) - gapValue;
+    const maxOffset = totalWidth - containerWidth + gridPaddingLeft + gridPaddingRight;
     offset = Math.max(0, Math.min(offset, maxOffset));
     
     grid.style.transform = `translateX(-${offset}px)`;
