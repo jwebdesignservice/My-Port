@@ -3854,6 +3854,7 @@ p {
 .work_link:hover {
   color: #fff;
   background-color: #000;
+  border: 1.5px solid #fff;
 }
 
 .work_link:hover:where(.w-variant-f1e92d21-91a8-7094-65cb-1f6971d84684) {
@@ -3890,7 +3891,7 @@ p {
 /* Inverted Button Style */
 .work_link-inverted {
   background-color: transparent;
-  border: 1.5px solid var(--primary);
+  border: 1.5px solid #fff;
   color: #fff;
 }
 
