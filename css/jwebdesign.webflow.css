@@ -3991,8 +3991,15 @@ p {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 4rem;
+  padding-top: 8rem;
   padding-bottom: 6rem;
+}
+
+/* Fix for 1280px-1440px range where hero is taller */
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+  .work-gallery {
+    padding-top: 17rem;
+  }
 }
 
 /* Projects Header */
@@ -4233,13 +4240,17 @@ p {
   }
   
   .work-gallery {
-    padding-top: 3rem;
+    padding-top: 8rem;
     padding-bottom: 5rem;
   }
   
   .work-gallery-header {
     padding: 0 1.25rem;
     margin-bottom: 2rem;
+  }
+  
+  .my-services {
+    padding-bottom: 1rem;
   }
 }
 
@@ -4291,13 +4302,17 @@ p {
   }
   
   .work-gallery {
-    padding-top: 2.5rem;
+    padding-top: 4rem;
     padding-bottom: 4rem;
   }
   
   .work-gallery-header {
     padding: 0 1rem;
     margin-bottom: 1.5rem;
+  }
+  
+  .my-services {
+    padding-bottom: 1rem;
   }
 }
 
@@ -5879,8 +5894,8 @@ p {
   grid-column-gap: 3rem;
   grid-row-gap: 3rem;
   box-shadow: 0 40px 80px -60px var(--green-shadow);
-  -webkit-backdrop-filter: blur(.7px);
-  backdrop-filter: blur(.7px);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   border: 3px solid #141414;
   border-radius: 10px;
   justify-content: space-between;
@@ -7913,6 +7928,8 @@ p {
   .contact-wrapper {
     grid-column-gap: 1.2rem;
     grid-row-gap: 1.2rem;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
   .small-text-2 {
@@ -9273,6 +9290,8 @@ p {
     align-items: center;
     padding-left: 5px;
     padding-right: 5px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
   .contact-form-left-side {
@@ -10583,6 +10602,8 @@ p {
   .contact-wrapper {
     padding-top: 30px;
     padding-bottom: 20px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 
   .small-text-2 {
