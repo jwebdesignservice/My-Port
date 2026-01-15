@@ -5698,43 +5698,34 @@ p {
   padding-left: 0;
   font-family: Inter, sans-serif;
   font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-text-field:focus {
+  border-bottom-color: var(--primary);
+  outline: none;
 }
 
 .form-text-field.w-select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 5px center;
-  background-size: 20px;
-  padding-right: 30px;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 35px;
   cursor: pointer;
+  line-height: 1.5;
   height: auto;
   min-height: 44px;
-  line-height: 1.5;
-  transition: all 0.3s ease;
-}
-
-.form-text-field.w-select:hover {
-  border-bottom-color: rgba(255, 255, 255, 0.7);
-}
-
-.form-text-field.w-select:focus {
-  outline: none;
-  border-bottom-color: #C6FB50;
+  display: flex;
+  align-items: center;
 }
 
 .form-text-field.w-select option {
   background-color: #0c0c0c;
   color: #fff;
-  padding: 12px 10px;
-  font-family: Inter, sans-serif;
-  font-size: 1rem;
-}
-
-.form-text-field.w-select option:hover {
-  background-color: #1a1a1a;
 }
 
 .form-text-field.input-message {
