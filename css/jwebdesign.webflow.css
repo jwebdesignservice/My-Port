@@ -11510,7 +11510,7 @@ p {
 @media screen and (max-width: 767px) {
   .spline-container {
     height: 110%;
-    bottom: -10%; /* Adjust bottom offset if needed to keep it centered/visible */
+    bottom: -25%;
   }
 }
 
