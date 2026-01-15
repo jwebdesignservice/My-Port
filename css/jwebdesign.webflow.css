@@ -11517,7 +11517,7 @@ p {
 @media screen and (max-width: 767px) {
   .spline-container {
     height: 100%;
-    bottom: -15%;
+    bottom: calc(-15% - 65px);
     top: auto;
   }
   
