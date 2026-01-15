@@ -10936,7 +10936,7 @@ p {
   bottom: -15%;
   left: 0;
   width: 100%;
-  height: 75%;
+  height: 100%;
   z-index: 0;
   border-radius: 0.5rem;
   opacity: 0.8;
@@ -11516,7 +11516,7 @@ p {
 /* Mobile Spline Container Height Fix */
 @media screen and (max-width: 767px) {
   .spline-container {
-    height: 75%;
+    height: 100%;
     bottom: -15%;
     top: auto;
   }
