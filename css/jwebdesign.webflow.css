@@ -10929,6 +10929,7 @@ p {
   justify-content: center;
   background-color: var(--invert-bg-colour);
   padding: 0 2rem;
+  overflow: hidden;
 }
 
 .spline-container {
