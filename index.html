@@ -1727,7 +1727,7 @@ fbq('track', 'PageView');
           </div>
           <div data-w-id="62ba4b2e-722f-459d-ed64-5ff5fd232603" style="opacity:0" class="contact-from-right-side">
             <div class="form-block-wrapper w-form">
-              <form id="email-form" name="email-form" data-name="Email Form" method="get" class="contact-form-wrapper" data-wf-page-id="67c6ffefe95f823343e2a23c" data-wf-element-id="62ba4b2e-722f-459d-ed64-5ff5fd232605">
+              <form id="email-form" name="email-form" data-name="Email Form" action="https://formsubmit.co/jwebdesign.service@gmail.com" method="POST" class="contact-form-wrapper" data-wf-page-id="67c6ffefe95f823343e2a23c" data-wf-element-id="62ba4b2e-722f-459d-ed64-5ff5fd232605">
                 <div class="div-block-238">
                   <h1 class="section-heading white small">Start Your Project Today!</h1>
                 </div>
@@ -2307,6 +2307,54 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
   initProcessAnimations();
   initTestimonialsNavigation();
   initAnimatedTextSection();
+}
+
+// Form Submission Handler
+const form = document.getElementById('email-form');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const formWrapper = form.closest('.w-form');
+    const successMessage = formWrapper.querySelector('.w-form-done');
+    const errorMessage = formWrapper.querySelector('.w-form-fail');
+    const submitButton = form.querySelector('a.work_link'); // Target the link acting as button
+
+    // Visual feedback
+    if(submitButton) submitButton.style.opacity = '0.5';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'block';
+        if(submitButton) submitButton.style.opacity = '1';
+      }
+    })
+    .catch(error => {
+      errorMessage.style.display = 'block';
+      if(submitButton) submitButton.style.opacity = '1';
+      console.error('Form submission error:', error);
+    });
+  });
+  
+  // Handle the custom link button submission
+  const linkButton = form.querySelector('a.work_link');
+  if(linkButton) {
+    linkButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Trigger the form submit event
+      form.dispatchEvent(new Event('submit'));
+    });
+  }
 }
 </script>
 </body>
