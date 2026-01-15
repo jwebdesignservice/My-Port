@@ -11506,5 +11506,13 @@ p {
   margin: 0 auto;
 }
 
+/* Mobile Spline Container Height Fix */
+@media screen and (max-width: 767px) {
+  .spline-container {
+    height: 90%;
+    bottom: -10%; /* Adjust bottom offset if needed to keep it centered/visible */
+  }
+}
+
 
 
