@@ -30,7 +30,7 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -48,7 +48,7 @@ body {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -9586,7 +9586,7 @@ p {
   }
 
   .body {
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .style-guide-text-4 {
@@ -11516,18 +11516,13 @@ p {
 /* Mobile Spline Container Height Fix */
 @media screen and (max-width: 767px) {
   .spline-container {
-    height: 100%;
-    bottom: auto;
-    top: 0%;
+    height: 75%;
+    bottom: -15%;
+    top: auto;
   }
   
   .spline-container iframe {
-    transform: scale(0.6);
-    transform-origin: center center;
-    width: 166%; /* Compensate for scale(0.6) -> 1/0.6 = 1.666 */
-    height: 166%;
-    margin-left: -33%; /* Center the wider element */
-    margin-top: -33%;
+    transform: none;
   }
 }
 
