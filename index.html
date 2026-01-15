@@ -680,7 +680,7 @@ fbq('track', 'PageView');
         <div class="marquee-track">
           <!-- First set of projects -->
           <a href="https://thenordicgroup.webflow.io/" target="_blank" class="marquee-project-card">
-            <img src="images/TNG-TN.png" loading="lazy" alt="The Nordic Group" class="marquee-project-image">
+            <img src="images/project thumbnails/TNG project thumbnail.png" loading="lazy" alt="The Nordic Group" class="marquee-project-image">
             <div class="marquee-project-info">
               <div class="marquee-project-category">Web Design & Development</div>
               <div class="marquee-project-title">The Nordic Group</div>
@@ -694,7 +694,7 @@ fbq('track', 'PageView');
                     </div>
           </a>
           <a href="https://snow-outdoor-digs.webflow.io/" target="_blank" class="marquee-project-card">
-            <img src="images/Outdoor-digs-TN.png" loading="lazy" alt="Outdoor Digs" class="marquee-project-image">
+            <img src="images/project thumbnails/Outdoor digs project thumbnail.png" loading="lazy" alt="Outdoor Digs" class="marquee-project-image">
             <div class="marquee-project-info">
               <div class="marquee-project-category">Web Design & Development</div>
               <div class="marquee-project-title">Outdoor Digs (Home page only)</div>
@@ -724,7 +724,7 @@ fbq('track', 'PageView');
           
           <!-- Duplicate set for seamless loop -->
           <a href="https://thenordicgroup.webflow.io/" target="_blank" class="marquee-project-card">
-            <img src="images/TNG-TN.png" loading="lazy" alt="The Nordic Group" class="marquee-project-image">
+            <img src="images/project thumbnails/TNG project thumbnail.png" loading="lazy" alt="The Nordic Group" class="marquee-project-image">
             <div class="marquee-project-info">
               <div class="marquee-project-category">Web Design & Development</div>
               <div class="marquee-project-title">The Nordic Group</div>
@@ -738,7 +738,7 @@ fbq('track', 'PageView');
             </div>
           </a>
           <a href="https://snow-outdoor-digs.webflow.io/" target="_blank" class="marquee-project-card">
-            <img src="images/Outdoor-digs-TN.png" loading="lazy" alt="Outdoor Digs" class="marquee-project-image">
+            <img src="images/project thumbnails/Outdoor digs project thumbnail.png" loading="lazy" alt="Outdoor Digs" class="marquee-project-image">
             <div class="marquee-project-info">
               <div class="marquee-project-category">Web Design & Development</div>
               <div class="marquee-project-title">Outdoor Digs (Home page only)</div>
@@ -2306,6 +2306,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initProcessAnimations();
   initTestimonialsNavigation();
   initAnimatedTextSection();
+  initDraggableMarquee();
 });
 // Also run immediately in case DOM is already loaded
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -2314,6 +2315,117 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
   initProcessAnimations();
   initTestimonialsNavigation();
   initAnimatedTextSection();
+  initDraggableMarquee();
+}
+
+function initDraggableMarquee() {
+  const track = document.querySelector('.marquee-track');
+  const container = document.querySelector('.marquee-container');
+  if (!track || !container) return;
+
+  let animationId;
+  let isInitialized = false;
+  
+  // State variables
+  let currentPos = 0;
+  let isDragging = false;
+  let startX = 0;
+  let dragStartPos = 0;
+  let speed = 0.5;
+  let wrapPoint = 0;
+
+  // Event handlers
+  const startDrag = (e) => {
+    isDragging = true;
+    startX = e.pageX || e.touches[0].pageX;
+    dragStartPos = currentPos;
+    track.style.cursor = 'grabbing';
+  };
+  
+  const moveDrag = (e) => {
+    if (!isDragging) return;
+    const x = e.pageX || e.touches[0].pageX;
+    const diff = (startX - x) * 1.5;
+    currentPos = dragStartPos + diff;
+  };
+  
+  const endDrag = () => {
+    isDragging = false;
+    track.style.cursor = 'grab';
+  };
+
+  function updateDimensions() {
+    wrapPoint = track.scrollWidth / 2;
+  }
+
+  function animate() {
+    if (!isInitialized) return;
+    
+    if (!isDragging) {
+      currentPos += speed;
+    }
+    
+    if (wrapPoint > 0) {
+      if (currentPos >= wrapPoint) {
+        currentPos -= wrapPoint;
+      } else if (currentPos < 0) {
+        currentPos += wrapPoint;
+      }
+    }
+    
+    track.style.transform = `translateX(${-currentPos}px)`;
+    animationId = requestAnimationFrame(animate);
+  }
+
+  function setup() {
+    if (isInitialized) return;
+    isInitialized = true;
+    
+    track.style.animation = 'none';
+    track.style.cursor = 'grab';
+    
+    updateDimensions();
+    window.addEventListener('load', updateDimensions);
+    
+    container.addEventListener('mousedown', startDrag);
+    container.addEventListener('touchstart', startDrag, { passive: true });
+    window.addEventListener('mousemove', moveDrag);
+    window.addEventListener('touchmove', moveDrag, { passive: false });
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('touchend', endDrag);
+    
+    animate();
+  }
+
+  function teardown() {
+    if (!isInitialized) return;
+    isInitialized = false;
+    
+    cancelAnimationFrame(animationId);
+    
+    track.style.animation = '';
+    track.style.transform = '';
+    track.style.cursor = '';
+    
+    container.removeEventListener('mousedown', startDrag);
+    container.removeEventListener('touchstart', startDrag);
+    window.removeEventListener('mousemove', moveDrag);
+    window.removeEventListener('touchmove', moveDrag);
+    window.removeEventListener('mouseup', endDrag);
+    window.removeEventListener('touchend', endDrag);
+    window.removeEventListener('load', updateDimensions);
+  }
+
+  function checkScreen() {
+    if (window.innerWidth <= 991) {
+      setup();
+    } else {
+      teardown();
+    }
+  }
+
+  checkScreen();
+  window.addEventListener('resize', checkScreen);
 }
 
 // Form Submission Handler
