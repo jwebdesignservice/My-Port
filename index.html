@@ -1160,12 +1160,20 @@ fbq('track', 'PageView');
                       <path id="Path_1" data-name="Path 1" d="M24.93.5h9.315V9.815" transform="translate(258.133 1331)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5"></path>
                       <line id="Line_1" data-name="Line 1" x1="9.051" y2="9.5" transform="translate(283.326 1331.5)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5"></line>
                     </g>
-                  </svg></div>
+                    </svg></div>
               </a>
                 </div>
                         </div>
+          <div class="scroll-indicator">
+            <span class="scroll-indicator-text">Scroll</span>
+            <div class="scroll-indicator-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
                       </div>
                     </div>
+                  </div>
+                </div>
     </section>
 
     <section id="the-process" class="my-process">
@@ -1176,7 +1184,7 @@ fbq('track', 'PageView');
               <div class="small-text lime-green">The Process</div><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="25" height="25" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" app="ikonik" class="smalll-heading-icon">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" app="ikonik"></path>
               </svg>
-                  </div>
+              </div>
             <h1 class="section-heading-2"><span class="section-heading">How We Work</span></h1>
             <p class="process-subtitle">We begin with a discovery call, define your strategy, then bring your website to life.</p>
                 </div>
@@ -1185,14 +1193,14 @@ fbq('track', 'PageView');
             <!-- Connecting line -->
             <div class="process-line">
               <div class="process-line-fill"></div>
-                </div>
+                        </div>
             
             <!-- Step 1 -->
             <div class="process-step" data-step="1">
               <div class="process-step-number">
                 <span>01</span>
                 <div class="process-step-dot"></div>
-              </div>
+                      </div>
               <div class="process-step-card">
                 <div class="process-step-icon">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1200,20 +1208,20 @@ fbq('track', 'PageView');
                     <path d="M24 14V24L30 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="24" cy="24" r="3" fill="currentColor"/>
                   </svg>
-                </div>
+                    </div>
                 <div class="process-step-content">
                   <h3 class="process-step-title">Book a Discovery Call</h3>
                   <p class="process-step-description">Let's start with a quick call to get to know your business, goals, and what you're hoping to achieve with your website. This step helps us align expectations and ensures we're the right fit.</p>
-                        </div>
-                      </div>
-                    </div>
+                  </div>
+                </div>
+                </div>
             
             <!-- Step 2 -->
             <div class="process-step" data-step="2">
               <div class="process-step-number">
                 <span>02</span>
                 <div class="process-step-dot"></div>
-                  </div>
+              </div>
               <div class="process-step-card">
                 <div class="process-step-icon">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1228,16 +1236,16 @@ fbq('track', 'PageView');
                 <div class="process-step-content">
                   <h3 class="process-step-title">Share Brief &amp; Present Proposal</h3>
                   <p class="process-step-description">Once we've had our discovery call, you'll fill out a short creative brief. Based on that, I'll send over a detailed proposal outlining timelines, scope, and pricing for your review.</p>
-                </div>
-              </div>
-            </div>
+                        </div>
+                      </div>
+                    </div>
             
             <!-- Step 3 -->
             <div class="process-step" data-step="3">
               <div class="process-step-number">
                 <span>03</span>
                 <div class="process-step-dot"></div>
-          </div>
+                  </div>
               <div class="process-step-card">
                 <div class="process-step-icon">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2142,6 +2150,7 @@ function initAnimatedTextSection() {
   const firstChars = firstSentence.querySelectorAll('.headline-char');
   const secondChars = secondSentence.querySelectorAll('.headline-char');
   const ctaWrapper = document.querySelector('.animated-cta-wrapper');
+  const scrollIndicator = document.querySelector('.scroll-indicator');
   
   function updateAnimation() {
     const rect = scrollSpacer.getBoundingClientRect();
@@ -2256,6 +2265,19 @@ function initAnimatedTextSection() {
         // Fade out CTA as section leaves viewport
         const fadeProgress = Math.max(0, Math.min(1, (viewportHeight * 0.25 - sectionRect.bottom) / 300));
         ctaWrapper.style.opacity = 1 - fadeProgress;
+      }
+    }
+    
+    // Scroll indicator fades out once all text has been revealed
+    if (scrollIndicator) {
+      // Fade out between 85% and 95% progress (when second sentence is fully revealed)
+      if (progress < 0.85) {
+        scrollIndicator.style.opacity = '1';
+      } else if (progress >= 0.85 && progress <= 0.95) {
+        const indicatorFade = 1 - ((progress - 0.85) / 0.1);
+        scrollIndicator.style.opacity = indicatorFade;
+      } else {
+        scrollIndicator.style.opacity = '0';
       }
     }
   }
