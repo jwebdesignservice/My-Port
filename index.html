@@ -2310,7 +2310,6 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 }
 
 // Form Submission Handler
-/* 
 const form = document.getElementById('email-form');
 if (form) {
   form.addEventListener('submit', function(e) {
@@ -2354,18 +2353,6 @@ if (form) {
       e.preventDefault();
       // Trigger the form submit event
       form.dispatchEvent(new Event('submit'));
-    });
-  }
-}
-*/
-// Simple handler just to make the link submit the form normally
-const form = document.getElementById('email-form');
-if (form) {
-  const linkButton = form.querySelector('a.work_link');
-  if(linkButton) {
-    linkButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      form.submit();
     });
   }
 }
