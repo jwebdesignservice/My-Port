@@ -5710,11 +5710,15 @@ p {
   background-size: 16px;
   padding-right: 35px;
   cursor: pointer;
+  height: auto;
+  min-height: 44px;
+  line-height: normal;
 }
 
 .form-text-field.w-select option {
   background-color: #0c0c0c;
   color: #fff;
+  padding: 10px;
 }
 
 .form-text-field.input-message {
