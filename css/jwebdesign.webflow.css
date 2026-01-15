@@ -5304,6 +5304,8 @@ p {
   align-items: center;
   height: auto;
   display: block;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .slider-arrow-icon {
@@ -11478,6 +11480,20 @@ p {
     width: 35px;
     height: 35px;
   }
+}
+
+/* Testimonials Full Width Override */
+.section-container.testimonials-section-container {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.testimonials-section-container .testimonials-container {
+  width: 95%;
+  max-width: none !important;
+  margin: 0 auto;
 }
 
 
