@@ -3552,8 +3552,8 @@ p {
 }
 
 .container-large {
-  width: 100%;
-  max-width: 87rem;
+  width: 95%;
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
 }
@@ -3651,6 +3651,7 @@ p {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
 
 .hero-dark-overlay {
@@ -3660,6 +3661,7 @@ p {
   display: block;
   position: absolute;
   inset: 0%;
+  pointer-events: none;
 }
 
 .hero-heading {
@@ -3845,6 +3847,9 @@ p {
   text-decoration: none;
   transition: all .2s;
   display: flex;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .work_link:where(.w-variant-f1e92d21-91a8-7094-65cb-1f6971d84684) {
@@ -6707,6 +6712,10 @@ p {
     max-width: 1350px;
   }
 
+  .container-large {
+    max-width: 1350px;
+  }
+
   .collection-list {
     grid-column-gap: 2.2rem;
     grid-row-gap: 2.2rem;
@@ -7846,6 +7855,10 @@ p {
   }
 
   .section-container {
+    width: 93%;
+  }
+
+  .container-large {
     width: 93%;
   }
 
@@ -9030,6 +9043,10 @@ p {
     width: 93%;
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .container-large {
+    width: 93%;
   }
 
   .section-container.no-padding-top-and-bottom {
@@ -11664,6 +11681,7 @@ p {
   
   .projects-list-wrapper {
     gap: 6rem;
+    padding-top: 0;
   }
   
   .project-title {
@@ -11740,7 +11758,7 @@ p {
   color: #2effa5;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 2rem;
+  margin-bottom: calc(2rem - 15px);
 }
 
 .label-dot {
@@ -11761,7 +11779,7 @@ p {
   font-weight: 800;
   color: #fff;
   line-height: 1.05;
-  margin-bottom: 2rem;
+  margin-bottom: calc(2rem - 15px);
   padding-bottom: 8px;
   letter-spacing: -0.03em;
   background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
