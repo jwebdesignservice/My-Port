@@ -3870,9 +3870,11 @@ p {
 }
 
 .work_link:hover:where(.w-variant-f1e92d21-91a8-7094-65cb-1f6971d84684) {
-  border-bottom: 2px solid var(--white);
+  border: none;
+  border-bottom: 2px solid var(--primary);
   border-radius: 0;
   text-decoration: none;
+  background-color: transparent;
 }
 
 /* Hero Buttons Wrapper */
@@ -6353,7 +6355,7 @@ p {
   }
 
   .hero-wrapper {
-    max-height: 800px;
+    max-height: 960px;
   }
 
   .small-text, .small-text.grey, .small-text.relative.grey, .small-text.semi-bold {
@@ -6683,7 +6685,7 @@ p {
   }
 
   .hero-wrapper {
-    max-height: 840px;
+    max-height: 960px;
     position: relative;
   }
 
@@ -6939,7 +6941,7 @@ p {
   }
 
   .hero-wrapper {
-    max-height: 890px;
+    max-height: 960px;
   }
 
   .hero-heading {
@@ -11392,7 +11394,7 @@ p {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 1.4rem;
 }
 
 .testimonial-arrow {
@@ -11937,6 +11939,86 @@ p {
   .projects-hero-heading {
     font-size: 2rem;
   }
+}
+
+/* Large Screen Hero Fix */
+@media screen and (min-width: 1440px) {
+  .hero-content {
+    max-width: 1400px;
+  }
+}
+
+/* Projects Hero Adjustments */
+.projects-hero {
+  padding-bottom: 0;
+}
+
+.projects-hero-heading {
+  padding-bottom: 8px;
+}
+
+/* Hero Sub Text Size Adjustments */
+.hero-sub-text.medium-text {
+  font-size: 1.3rem;
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-sub-text.medium-text {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .hero-sub-text.medium-text {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-sub-text.medium-text {
+    font-size: 1rem;
+  }
+  
+  .testimonials-navigation {
+    margin-top: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .contact-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+/* Contact Icon Background */
+.contact-icon-bg {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  background-color: #0f0f0f;
+  border: 1px solid #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: -9999;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.contact-icon-bg:hover {
+  background-color: #1a1a1a;
+  border-color: #2effa5;
+  color: #2effa5;
+}
+
+.contact-icon-bg .contact-icon {
+  width: 24px;
+  height: 24px;
 }
 
 
