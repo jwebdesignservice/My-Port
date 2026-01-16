@@ -12021,5 +12021,24 @@ p {
   height: 24px;
 }
 
+/* Tablet and Mobile Word Break Fix */
+@media screen and (max-width: 991px) {
+  .white-green-gradient, .hero-heading {
+    word-break: keep-all; /* Changed from normal to keep-all */
+    overflow-wrap: normal; /* Changed from break-word to normal */
+    hyphens: none; /* Changed from auto to none */
+  }
+  
+  /* Additional tweak to ensure text wraps nicely but doesn't break words unnaturally */
+  .hero-heading {
+    max-width: 100%;
+    line-height: 1.2;
+  }
+
+  .desktop-only-break {
+    display: none;
+  }
+}
+
 
 
