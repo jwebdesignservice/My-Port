@@ -6679,7 +6679,7 @@ p {
   }
 
   .nav_title, .nav_link {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .hero-wrapper {
@@ -6692,7 +6692,7 @@ p {
   }
 
   .small-text, .small-text.lime-green {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .tiny-text {
@@ -11734,7 +11734,6 @@ p {
   opacity: 1;
 }
 
-/* Projects Hero Section */
 .projects-hero {
   position: relative;
   padding: 200px 0 0 0;
