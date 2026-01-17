@@ -6251,6 +6251,7 @@ p {
 
 .grid-bacgkorund {
   z-index: 1;
+  pointer-events: none;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   outline-offset: 0px;
