@@ -4144,6 +4144,7 @@ p {
   display: block;
   position: relative;
   border-radius: 5px 5px 0 0;
+  max-width: 100%;
 }
 
 .marquee-project-info {
